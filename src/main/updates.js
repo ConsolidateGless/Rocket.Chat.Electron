@@ -183,7 +183,7 @@ ipcMain.on('can-set-auto-update', (e) => { e.returnValue = canSetAutoUpdate(); }
 ipcMain.on('set-auto-update', (e, canAutoUpdate) => setAutoUpdate(canAutoUpdate));
 ipcMain.on('check-for-updates', (e, ...args) => checkForUpdates(e, ...args));
 ipcMain.on('skip-update-version', (e, ...args) => skipUpdateVersion(...args));
-ipcMain.on('remind-update-later', () => {});
+ipcMain.on('remind-update-later', () => { });
 ipcMain.on('download-update', () => downloadUpdate());
 
 app.once('start', () => ipcMain.emit('check-for-updates'));

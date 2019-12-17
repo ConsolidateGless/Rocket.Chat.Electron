@@ -19,7 +19,7 @@ class WebView extends EventEmitter {
 		ipcRenderer.on('screenshare-result', (e, id) => {
 			const webviewObj = this.getActive();
 			webviewObj.executeJavaScript(`
-				window.parent.postMessage({ sourceId: '${ id }' }, '*');
+				window.parent.postMessage({ sourceId: '${ id}' }, '*');
 			`);
 		});
 	}
@@ -57,17 +57,17 @@ class WebView extends EventEmitter {
 				return;
 			}
 
-			webviewObj.getWebContents().executeJavaScript(`(${ ([title, description, moreInfo]) => {
+			webviewObj.getWebContents().executeJavaScript(`(${([title, description, moreInfo]) => {
 				console.warn('%c%s', 'color: red; font-size: 32px;', title);
 				console.warn('%c%s', 'font-size: 20px;', description);
 				console.warn('%c%s', 'font-size: 20px;', moreInfo);
-			} })(${ JSON.stringify([t('selfxss.title'), t('selfxss.description'), t('selfxss.moreInfo')]) })`);
+			}})(${JSON.stringify([t('selfxss.title'), t('selfxss.description'), t('selfxss.moreInfo')])})`);
 
 			selfXssWarned = true;
 		});
 
 		webviewObj.addEventListener('ipc-message', (event) => {
-			this.emit(`ipc-message-${ event.channel }`, host.url, event.args);
+			this.emit(`ipc-message-${event.channel}`, host.url, event.args);
 
 			switch (event.channel) {
 				case 'get-sourceId':
@@ -79,6 +79,10 @@ class WebView extends EventEmitter {
 					this.loading();
 					webviewObj.loadURL(server);
 					break;
+				}
+				case 'unread-changed': {
+					const amountOfUnreadMessages = event.args[0] || 0;
+					document.title = amountOfUnreadMessages ? `(${amountOfUnreadMessages}) Gless Chat` : 'Gless Chat';
 				}
 			}
 		});
@@ -94,13 +98,13 @@ class WebView extends EventEmitter {
 				return;
 			}
 			if (e.isMainFrame) {
-				webviewObj.loadURL(`file://${ __dirname }/loading-error.html`);
+				webviewObj.loadURL(`file://${__dirname}/loading-error.html`);
 			}
 		});
 
 		webviewObj.addEventListener('did-get-response-details', (e) => {
 			if (e.resourceType === 'mainFrame' && e.httpResponseCode >= 500) {
-				webviewObj.loadURL(`file://${ __dirname }/loading-error.html`);
+				webviewObj.loadURL(`file://${__dirname}/loading-error.html`);
 			}
 		});
 
@@ -123,7 +127,7 @@ class WebView extends EventEmitter {
 	}
 
 	getByUrl(hostUrl) {
-		return this.webviewParentElement.querySelector(`webview[server="${ hostUrl }"]`);
+		return this.webviewParentElement.querySelector(`webview[server="${hostUrl}"]`);
 	}
 
 	getActive() {
@@ -131,7 +135,7 @@ class WebView extends EventEmitter {
 	}
 
 	isActive(hostUrl) {
-		return !!this.webviewParentElement.querySelector(`webview.active[server="${ hostUrl }"]`);
+		return !!this.webviewParentElement.querySelector(`webview.active[server="${hostUrl}"]`);
 	}
 
 	deactiveAll() {
@@ -186,7 +190,7 @@ class WebView extends EventEmitter {
 			.filter((webviewObj) => webviewObj.insertCSS)
 			.forEach((webviewObj) => webviewObj.insertCSS(`
 				.sidebar {
-					padding-top: ${ enabled ? '10px' : '0' };
+					padding-top: ${ enabled ? '10px' : '0'};
 					transition: margin .5s ease-in-out;
 				}
 			`));

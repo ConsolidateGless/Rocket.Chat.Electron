@@ -14,7 +14,7 @@ async function setupLanding() {
 	window.addEventListener('offline', handleConnectionStatus);
 	handleConnectionStatus();
 
-	const defaultInstance = 'https://open.rocket.chat';
+	const defaultInstance = 'https://chat.gless.io';
 
 	document.querySelector('#login-card .connect__prompt').innerHTML = i18n.__('landing.inputUrl');
 	document.querySelector('#login-card #invalidUrl').innerHTML = i18n.__('error.noValidServerFound');
@@ -27,7 +27,7 @@ async function setupLanding() {
 	const connectButton = form.querySelector('[type="submit"]');
 
 	function validateHost() {
-		return new Promise(function(resolve, reject) {
+		return new Promise(function (resolve, reject) {
 			function execValidation() {
 				errorPane.style.display = 'none';
 				hostField.classList.remove('wrong');
@@ -51,7 +51,7 @@ async function setupLanding() {
 						connectButton.disabled = false;
 						resolve();
 					})
-					.catch(function(status) {
+					.catch(function (status) {
 						// If the url begins with HTTP, mark as invalid
 						if (/^https?:\/\/.+/.test(host) || status === 'basic-auth') {
 							connectButton.value = i18n.__('landing.invalidUrl');
@@ -75,13 +75,13 @@ async function setupLanding() {
 						// If the url isn't localhost, don't have dots and don't have protocol
 						// try as a .rocket.chat subdomain
 						if (!/(^https?:\/\/)|(\.)|(^([^:]+:[^@]+@)?localhost(:\d+)?$)/.test(host)) {
-							hostField.value = `https://${ host }.rocket.chat`;
+							hostField.value = `https://${host}.rocket.chat`;
 							return execValidation();
 						}
 
 						// If the url don't start with protocol try HTTPS
 						if (!/^https?:\/\//.test(host)) {
-							hostField.value = `https://${ host }`;
+							hostField.value = `https://${host}`;
 							return execValidation();
 						}
 					});
@@ -93,19 +93,19 @@ async function setupLanding() {
 	window.addEventListener('load', () => hostField.focus());
 
 	hostField.addEventListener('blur', () => {
-		validateHost().then(function() {}, function() {});
+		validateHost().then(function () { }, function () { });
 	});
 
 	ipcRenderer.on('certificate-reload', (event, url) => {
 		hostField.value = url.replace(/\/api\/info$/, '');
-		validateHost().then(function() {}, function() {});
+		validateHost().then(function () { }, function () { });
 	});
 
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
 		event.stopPropagation();
 
-		validateHost().then(function() {
+		validateHost().then(function () {
 			const input = form.querySelector('[name="host"]');
 			let url = input.value;
 
@@ -119,7 +119,7 @@ async function setupLanding() {
 			}
 
 			input.value = '';
-		}, function() {});
+		}, function () { });
 	});
 }
 
