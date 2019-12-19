@@ -112,7 +112,6 @@ class WebView extends EventEmitter {
 
 		webviewObj.addEventListener('ipc-message', (event) => {
 			this.emit(`ipc-message-${event.channel}`, host.url, event.args);
-
 			switch (event.channel) {
 				case 'get-sourceId':
 					ipcRenderer.send('open-screen-sharing-dialog');
@@ -120,7 +119,7 @@ class WebView extends EventEmitter {
 				case 'unread-changed': {
 					const amountOfUnreadMessages = event.args[0] || 0;
 					document.title = amountOfUnreadMessages ? `(${amountOfUnreadMessages}) Gless Chat` : 'Gless Chat';
-					// break;
+					break;
 				}
 				case 'create-activity': {
 					ipcRenderer.send('create-activity', event);

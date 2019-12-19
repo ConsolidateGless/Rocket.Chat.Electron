@@ -25,6 +25,9 @@ import {
 import webview, { mountWebViews } from './webview';
 import { processDeepLink } from './deepLinks';
 import { mountMainWindow, updateMainWindow, unmountMainWindow } from './mainWindow';
+import { exec } from 'child_process';
+import fs from 'fs';
+import path from 'path';
 
 const { app, getCurrentWindow, shell } = remote;
 
@@ -156,8 +159,12 @@ export default () => {
 	remote.ipcMain.on('open-update-dialog', (_, ...args) => openUpdateDialog(...args));
 	remote.ipcMain.on('close-update-dialog', (_, ...args) => closeUpdateDialog(...args));
 
-	const handleCreateActivity = (e, a) => {
-		console.log(e, a);
+	const handleCreateActivity = async (e, a) => {
+		const { subject, body } = a.args[0];
+		const { csProgram, tmp } = process.env;
+		const fileName = path.join(tmp, 'createActivityFromChatBody.html');
+		fs.writeFileSync(fileName, `<html><head><style>*,html,body,td{font-size:12px;}</style></head><body>${body}</body></html>`);
+		exec(`${csProgram} "<xml><cmd>newakt</cmd><param1>${subject}</param1><param11><file>${fileName}</file></param11></xml>"`);
 	}
 
 	remote.ipcMain.on('create-activity', handleCreateActivity)
