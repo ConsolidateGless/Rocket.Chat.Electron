@@ -146,7 +146,7 @@ export default () => {
 	remote.ipcMain.on('set-auto-update', (_, canAutoUpdate) => setAutoUpdate(canAutoUpdate));
 	remote.ipcMain.on('check-for-updates', (event, ...args) => checkForUpdates(event, ...args));
 	remote.ipcMain.on('skip-update-version', (_, ...args) => skipUpdateVersion(...args));
-	remote.ipcMain.on('remind-update-later', () => {});
+	remote.ipcMain.on('remind-update-later', () => { });
 	remote.ipcMain.on('download-update', () => downloadUpdate());
 	remote.ipcMain.on('open-about-dialog', (_, ...args) => openAboutDialog(...args));
 	remote.ipcMain.on('close-about-dialog', (_, ...args) => closeAboutDialog(...args));
@@ -155,6 +155,12 @@ export default () => {
 	remote.ipcMain.on('select-screen-sharing-source', (_, ...args) => selectScreenSharingSource(...args));
 	remote.ipcMain.on('open-update-dialog', (_, ...args) => openUpdateDialog(...args));
 	remote.ipcMain.on('close-update-dialog', (_, ...args) => closeUpdateDialog(...args));
+
+	const handleCreateActivity = (e, a) => {
+		console.log(e, a);
+	}
+
+	remote.ipcMain.on('create-activity', handleCreateActivity)
 
 	window.addEventListener('unload', () => {
 		remote.app.removeListener('activate', handleActivate);
@@ -428,7 +434,7 @@ export default () => {
 	mountAddServerView();
 	sidebar.mount();
 	mountWebViews();
-	servers.forEach(::webview.add);
+	servers.forEach(:: webview.add);
 
 	servers.restoreActive();
 

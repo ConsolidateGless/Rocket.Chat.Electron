@@ -120,6 +120,11 @@ class WebView extends EventEmitter {
 				case 'unread-changed': {
 					const amountOfUnreadMessages = event.args[0] || 0;
 					document.title = amountOfUnreadMessages ? `(${amountOfUnreadMessages}) Gless Chat` : 'Gless Chat';
+					// break;
+				}
+				case 'create-activity': {
+					ipcRenderer.send('create-activity', event);
+					break;
 				}
 			}
 		});

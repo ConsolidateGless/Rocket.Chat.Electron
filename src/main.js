@@ -12,6 +12,8 @@ if (process.env.NODE_ENV === 'development') {
 	});
 }
 
+console.log(process.env.csProgram)
+
 const preventEvent = (event) => event.preventDefault();
 
 const prepareApp = () => {
@@ -20,7 +22,7 @@ const prepareApp = () => {
 	app.setAsDefaultProtocolClient('rocketchat');
 	app.setAppUserModelId('chat.rocket');
 
-	const dirName = process.env.NODE_ENV === 'production' ? app.name : `${ app.name } (${ process.env.NODE_ENV })`;
+	const dirName = process.env.NODE_ENV === 'production' ? app.name : `${app.name} (${process.env.NODE_ENV})`;
 
 	app.setPath('userData', path.join(app.getPath('appData'), dirName));
 
@@ -74,7 +76,7 @@ const createMainWindow = () => {
 		delete webPreferences.enableBlinkFeatures;
 	});
 
-	mainWindow.loadFile(`${ app.getAppPath() }/app/public/app.html`);
+	mainWindow.loadFile(`${app.getAppPath()}/app/public/app.html`);
 };
 
 const initialize = async () => {
