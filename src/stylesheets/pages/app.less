@@ -14,7 +14,7 @@
 			display: flex;
 		}
 
-		#login-card {
+		.add-server-form {
 			display: none;
 		}
 	}
@@ -33,7 +33,7 @@
 	display: none;
 }
 
-body.offline #login-card *:not(.only-offline) {
+body.offline .add-server-form *:not(.only-offline) {
 	display: none;
 }
 
@@ -96,21 +96,7 @@ body.offline .only-offline {
 	}
 }
 
-webview {
-	position: fixed;
-	z-index: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 68px;
-}
-
-webview.active {
-	z-index: 2;
-}
-
-.landing-page {
-
+.add-server-view {
 	position: fixed;
 	z-index: 1;
 	top: 0;
@@ -127,6 +113,10 @@ webview.active {
 	align-items: center;
 	-webkit-app-region: drag;
 	justify-content: center;
+
+	.hidden {
+		display: none;
+	}
 
 	&.hide {
 		display: none;
@@ -165,7 +155,7 @@ webview.active {
 	}
 }
 
-#login-card {
+.add-server-form {
 	position: relative;
 	z-index: 1;
 
