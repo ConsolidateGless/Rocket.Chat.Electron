@@ -21,7 +21,7 @@ let state = {
 	hasTrayIcon: false,
 };
 
-const instance = new class Dock extends EventEmitter {}();
+const instance = new class Dock extends EventEmitter { }();
 
 const destroy = () => {
 	instance.removeAllListeners();

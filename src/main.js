@@ -12,15 +12,14 @@ if (process.env.NODE_ENV === 'development') {
 	});
 }
 
-console.log(process.env.csProgram)
 
 const preventEvent = (event) => event.preventDefault();
 
 const prepareApp = () => {
 	setupErrorHandling('main');
 
-	app.setAsDefaultProtocolClient('rocketchat');
-	app.setAppUserModelId('chat.rocket');
+	app.setAsDefaultProtocolClient('glesschat');
+	app.setAppUserModelId('chat.gless');
 
 	const dirName = process.env.NODE_ENV === 'production' ? app.name : `${app.name} (${process.env.NODE_ENV})`;
 

@@ -34,10 +34,12 @@ const { app, getCurrentWindow, shell } = remote;
 const updatePreferences = () => {
 	const mainWindow = getCurrentWindow();
 	const showWindowOnUnreadChanged = localStorage.getItem('showWindowOnUnreadChanged') === 'true';
-	const hasTrayIcon = localStorage.getItem('hideTray')
-		? localStorage.getItem('hideTray') !== 'true' : process.platform !== 'linux';
-	const hasMenuBar = localStorage.getItem('autohideMenu') !== 'true';
-	const hasSidebar = localStorage.getItem('sidebar-closed') !== 'true';
+	//const hasTrayIcon = localStorage.getItem('hideTray')
+	//? localStorage.getItem('hideTray') !== 'true' : process.platform !== 'linux';
+	//const hasMenuBar = localStorage.getItem('autohideMenu') !== 'true';
+	//const hasSidebar = localStorage.getItem('sidebar-closed') !== 'true';
+
+	const hasTrayIcon = false, hasMenuBar = false, hasSidebar = false;
 
 	menus.setState({
 		showTrayIcon: hasTrayIcon,
@@ -413,7 +415,8 @@ export default () => {
 	});
 
 	webview.on('dom-ready', () => {
-		const hasSidebar = localStorage.getItem('sidebar-closed') !== 'true';
+		//const hasSidebar = localStorage.getItem('sidebar-closed') !== 'true';
+		const hasSidebar = false;
 		sidebar.setState({
 			visible: hasSidebar,
 		});
