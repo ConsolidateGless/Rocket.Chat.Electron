@@ -8,7 +8,7 @@ const { app, screen } = remote;
 const isInsideSomeScreen = ({ x, y, width, height }) =>
 	screen.getAllDisplays()
 		.some(({ bounds }) => x >= bounds.x && y >= bounds.y
-		&& x + width <= bounds.x + bounds.width && y + height <= bounds.y + bounds.height,
+			&& x + width <= bounds.x + bounds.width && y + height <= bounds.y + bounds.height,
 		);
 
 const loadWindowState = async ([width, height]) => {
@@ -209,6 +209,18 @@ const useIpcRequests = (browserWindow) => {
 export function MainWindow({ browserWindow, hideOnClose = false }) {
 	const windowStateRef = useRef({});
 
+	browserWindow.isMaximized = function () {
+		const { outerWidth, outerHeight, screen: { availWidth, availHeight } } = global;
+		return availHeight == outerHeight && availWidth == outerWidth;
+	}
+
+	browserWindow.isMinimized = function () {
+		return document.visibilityState == 'hidden';
+	}
+
+	browserWindow.isFocused = function () {
+		return document.hasFocus();
+	}
 	useBeforeAppQuitEvent(browserWindow, windowStateRef);
 	useWindowStateUpdates(browserWindow, windowStateRef);
 	useWindowClosing(browserWindow, windowStateRef, hideOnClose);
