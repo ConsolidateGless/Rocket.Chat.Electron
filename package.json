@@ -1,6 +1,6 @@
 {
   "name": "rocketchat",
-  "description": "Official OSX, Windows, and Linux Desktop Clients for Rocket.Chat",
+  "description": "Official OSX, Windows, and Linux Desktop Clients for Gless.Chat",
   "version": "2.18.0-develop",
   "author": "Rocket.Chat Support <support@rocket.chat>",
   "copyright": "© 2019, Rocket.Chat",
@@ -86,5 +86,5 @@
     "npm": ">=6.9.x",
     "yarn": ">=1.17.x"
   },
-  "productName": "Rocket.Chat"
+  "productName": "Gless Chat"
 }

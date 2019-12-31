@@ -301,7 +301,6 @@ class Menus extends EventEmitter {
 	}
 
 	update() {
-		console.log(this.state);
 		const template = createTemplate({ appName: app.name, ...this.state }, this);
 		const menu = Menu.buildFromTemplate(template);
 		Menu.setApplicationMenu(menu);
