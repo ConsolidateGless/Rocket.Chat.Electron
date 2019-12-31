@@ -51,7 +51,7 @@
         "update": {
             "title": "Une mise à jour est disponible",
             "announcement": "Une nouvelle mise à jour est disponible",
-            "message": "Une mise à jour de Rocket.Chat Desktop App est disponible!",
+            "message": "Une mise à jour de Gless Chat Desktop App est disponible!",
             "currentVersion": "Version utilisée:",
             "newVersion": "Nouvelle version:",
             "install": "Installer la mise à jour",

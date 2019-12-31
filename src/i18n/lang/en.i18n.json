@@ -62,7 +62,7 @@
         "update": {
             "title": "Update Available",
             "announcement": "New Update is Available",
-            "message": "A new version of the Rocket.Chat Desktop App is available!",
+            "message": "A new version of the Gless Chat Desktop App is available!",
             "currentVersion": "Current Version:",
             "newVersion": "New Version:",
             "install": "Install Update",
@@ -148,8 +148,8 @@
     },
     "selfxss": {
         "title": "Stop!",
-        "description": "This is a browser feature intended for developers. If someone told you to copy-paste something here to enable a Rocket.Chat feature or \"hack\" someone's account, it is a scam and will give them access to your Rocket.Chat account.",
-        "moreInfo": "See https://go.rocket.chat/i/xss for more information."
+        "description": "This is a browser feature intended for developers. If someone told you to copy-paste something here to enable a Gless Chat feature or \"hack\" someone's account, it is a scam and will give them access to your Gless Chat account.",
+        "moreInfo": "See https://go.Gless Chat/i/xss for more information."
     },
     "sidebar": {
         "addNewServer": "Add new server",

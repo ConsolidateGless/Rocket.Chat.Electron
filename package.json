@@ -1,10 +1,10 @@
 {
   "name": "rocketchat",
   "description": "Official OSX, Windows, and Linux Desktop Clients for Gless.Chat",
-  "version": "2.18.0-develop",
-  "author": "Rocket.Chat Support <support@rocket.chat>",
-  "copyright": "© 2019, Rocket.Chat",
-  "homepage": "https://rocket.chat",
+  "version": "2.18.0",
+  "author": "Consolidate Software GmbH & co KG <support@consolidate.eu>",
+  "copyright": "© 2019, Gless.Chat",
+  "homepage": "https://consolidate.eu",
   "license": "MIT",
   "keywords": [
     "rocketchat",
@@ -24,6 +24,7 @@
     "start": "gulp start",
     "test": "gulp test",
     "release": "gulp release",
+    "release-prod": "set NODE_ENV=production&& gulp release",
     "icons": "gulp icons",
     "changelog": "conventional-changelog --config .github/changelog.js -i HISTORY.md -s",
     "eslint": "eslint src gulpfile.js",

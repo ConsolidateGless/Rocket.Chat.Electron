@@ -111,7 +111,7 @@
 	"publish": [
 		{
 			"provider": "generic",
-			"url": "http://www.gless.io/desktop"
+			"url": "http://dl.gless.io/chat"
 		}
 	]
 }

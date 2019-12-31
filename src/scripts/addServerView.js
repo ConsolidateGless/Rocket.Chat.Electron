@@ -4,7 +4,7 @@ import { t } from 'i18next';
 import servers from './servers';
 import { createElement, useRoot, useRef, useEffect, useState } from './reactiveUi';
 
-function AddServerView({ defaultServerUrl = 'https://open.rocket.chat', visible }) {
+function AddServerView({ defaultServerUrl = 'https://chat.gless.io', visible }) {
 	const root = useRoot();
 
 	const inputRef = useRef();
@@ -53,11 +53,11 @@ function AddServerView({ defaultServerUrl = 'https://open.rocket.chat', visible 
 			}
 
 			if (!/(^https?:\/\/)|(\.)|(^([^:]+:[^@]+@)?localhost(:\d+)?$)/.test(serverUrl)) {
-				return validateServerUrl(`https://${ serverUrl }.rocket.chat`);
+				return validateServerUrl(`https://${serverUrl}.rocket.chat`);
 			}
 
 			if (!/^https?:\/\//.test(serverUrl)) {
-				return validateServerUrl(`https://${ serverUrl }`);
+				return validateServerUrl(`https://${serverUrl}`);
 			}
 		}
 	};
