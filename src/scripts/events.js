@@ -39,7 +39,7 @@ const updatePreferences = () => {
 	//const hasMenuBar = localStorage.getItem('autohideMenu') !== 'true';
 	//const hasSidebar = localStorage.getItem('sidebar-closed') !== 'true';
 
-	const hasTrayIcon = false, hasMenuBar = false, hasSidebar = false;
+	const hasTrayIcon = false, hasMenuBar = true, hasSidebar = false;
 
 	menus.setState({
 		showTrayIcon: hasTrayIcon,
