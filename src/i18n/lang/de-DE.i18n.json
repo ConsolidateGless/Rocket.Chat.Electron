@@ -111,7 +111,7 @@
         "showFullScreen": "Vollbildmodus",
         "showMenuBar": "MenuBar",
         "showServerList": "Server liste",
-        "showTrayIcon": "Symbole in menüleiste",
+        "showTrayIcon": "Menüleiste statt schließen",
         "toggleDevTools": "&DevTools ein-/ausblenden",
         "undo": "Wider&rufen",
         "viewMenu": "Darstellung",

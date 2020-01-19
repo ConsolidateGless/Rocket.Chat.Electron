@@ -188,6 +188,17 @@ const createTemplate = ({
 				},
 			],
 		},
+		{
+			label: t('menus.windowMenu'),
+			submenu: [
+				{
+					label: t('menus.showTrayIcon'),
+					type: 'checkbox',
+					checked: showTrayIcon,
+					click: () => events.emit('toggle', 'showTrayIcon'),
+				},
+			]
+		},
 		// {
 		// 	label: t('menus.windowMenu'),
 		// 	role: 'window',

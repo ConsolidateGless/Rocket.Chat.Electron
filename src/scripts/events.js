@@ -34,12 +34,12 @@ const { app, getCurrentWindow, shell } = remote;
 const updatePreferences = () => {
 	const mainWindow = getCurrentWindow();
 	const showWindowOnUnreadChanged = localStorage.getItem('showWindowOnUnreadChanged') === 'true';
-	//const hasTrayIcon = localStorage.getItem('hideTray')
+	const hasTrayIcon = localStorage.getItem('hideTray') ? localStorage.getItem('hideTray') !== 'true' : process.platform !== 'linux';
 	//? localStorage.getItem('hideTray') !== 'true' : process.platform !== 'linux';
 	//const hasMenuBar = localStorage.getItem('autohideMenu') !== 'true';
 	//const hasSidebar = localStorage.getItem('sidebar-closed') !== 'true';
 
-	const hasTrayIcon = false, hasMenuBar = true, hasSidebar = false;
+	const hasMenuBar = true, hasSidebar = false;
 
 	menus.setState({
 		showTrayIcon: hasTrayIcon,
@@ -165,8 +165,8 @@ export default () => {
 		const { subject, body } = a.args[0];
 		const { csProgram, tmp } = process.env;
 		const fileName = path.join(tmp, 'createActivityFromChatBody.html');
-		fs.writeFileSync(fileName, `<html><head><style>*,html,body,td{font-size:12px;}</style></head><body>${body}</body></html>`);
-		exec(`${csProgram} "<xml><cmd>newakt</cmd><param1>${subject}</param1><param11><file>${fileName}</file></param11></xml>"`);
+		fs.writeFileSync(fileName, `<html><head><style>*,html,body,td{font-size:12px;}</style></head><body>${body}</body></html>`, 'utf8');
+		exec(`"${csProgram}" "<xml><cmd>newakt</cmd><param1>${subject}</param1><param11><file>${fileName}</file></param11></xml>"`);
 	}
 
 	remote.ipcMain.on('create-activity', handleCreateActivity)

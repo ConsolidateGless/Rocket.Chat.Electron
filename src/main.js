@@ -69,7 +69,7 @@ const createMainWindow = () => {
 		},
 	});
 
-	//mainWindow.on('close', preventEvent);
+	mainWindow.on('close', preventEvent);
 
 	mainWindow.webContents.on('will-attach-webview', (event, webPreferences) => {
 		delete webPreferences.enableBlinkFeatures;

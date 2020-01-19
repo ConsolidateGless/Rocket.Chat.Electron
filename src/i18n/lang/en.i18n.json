@@ -133,7 +133,7 @@
         "showMenuBar": "Menu bar",
         "showOnUnreadMessage": "Show on unread messages",
         "showServerList": "Server list",
-        "showTrayIcon": "Tray icon",
+        "showTrayIcon": "To tray on close",
         "toggleDevTools": "Toggle &DevTools",
         "undo": "&Undo",
         "viewMenu": "&View",

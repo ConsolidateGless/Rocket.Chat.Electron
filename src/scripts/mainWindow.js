@@ -144,7 +144,12 @@ const useWindowClosing = (browserWindow, windowStateRef, hideOnClose) => {
 			if (process.platform === 'darwin' || hideOnClose) {
 				browserWindow.hide();
 			} else if (process.platform === 'win32') {
-				browserWindow.minimize();
+				const hideTray = localStorage.getItem('hideTray');
+				if (hideTray == "true") {
+					app.quit();
+				} else {
+					browserWindow.minimize();
+				}
 			} else {
 				app.quit();
 			}
