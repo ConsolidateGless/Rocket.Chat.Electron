@@ -125,7 +125,8 @@
         "viewMenu": "&Voir",
         "windowMenu": "Fe&nêtre",
         "zoomIn": "Zoom avant",
-        "zoomOut": "Zoom arrière"
+        "zoomOut": "Zoom arrière",
+        "changeServer": "Changer le serveur"
     },
     "loadingError": {
         "title": "Erreur du chargement du serveur",

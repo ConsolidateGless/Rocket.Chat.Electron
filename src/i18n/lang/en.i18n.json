@@ -139,7 +139,8 @@
         "viewMenu": "&View",
         "windowMenu": "&Window",
         "zoomIn": "Zoom in",
-        "zoomOut": "Zoom out"
+        "zoomOut": "Zoom out",
+        "changeServer": "Change server"
     },
     "loadingError": {
         "title": "Server Failed to Load",

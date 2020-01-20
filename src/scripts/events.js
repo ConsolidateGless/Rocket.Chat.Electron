@@ -341,7 +341,7 @@ export default () => {
 		webview.getByUrl(hostUrl).reload();
 	});
 
-	sidebar.on('remove-server', (hostUrl) => {
+	menus.on('remove-server', (hostUrl) => {
 		servers.removeHost(hostUrl);
 	});
 

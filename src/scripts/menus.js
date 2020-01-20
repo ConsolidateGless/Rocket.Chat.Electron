@@ -18,6 +18,10 @@ const createTemplate = ({
 		{
 			label: process.platform === 'darwin' ? appName : t('menus.fileMenu'),
 			submenu: [
+				{
+					label: t('menus.changeServer'),
+					click: () => events.emit('remove-server', events.state.servers[0].url)
+				},
 				...process.platform === 'darwin' ? [
 					{
 						label: t('menus.about', { appName }),
