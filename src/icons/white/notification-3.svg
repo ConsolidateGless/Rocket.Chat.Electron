@@ -1,31 +1,14 @@
 <svg id="notification-3" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #e74014;
-      }
-
-      .cls-2, .cls-4 {
-        fill: #fff;
-      }
-
-      .cls-3 {
-        fill: #cf3914;
-      }
-
-      .cls-4 {
-        font-size: 98px;
-        font-family: Surt-Bold, Surt;
-        font-weight: 700;
-      }
-    </style>
-  </defs>
-  <g id="GlessIcon_1" data-name="GlessIcon 1">
-    <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-1" width="256" height="256"/>
-    <g id="O" transform="translate(-10 -10)">
-      <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-2" cx="79" cy="79" r="79" transform="translate(59 59)"/>
-      <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-3" cx="54" cy="54" r="54" transform="translate(84 84)"/>
+  <g id="Component_12_2" data-name="Component 12 – 2">
+    <g id="notification-1">
+      <g id="Rectangle_10" data-name="Rectangle 10" fill="#4e5c67" stroke="#707070" stroke-width="1">
+        <rect width="256" height="256" stroke="none"/>
+        <rect x="0.5" y="0.5" width="255" height="255" fill="none"/>
+      </g>
+      <g id="Group_1" data-name="Group 1" transform="translate(38 38)">
+        <path id="Path_1" data-name="Path 1" d="M26.344,211.524H13.52l9.068-10.3a36.917,36.917,0,0,0,8.764-20.611A76.872,76.872,0,0,1,4.268,144.246,80.359,80.359,0,0,1,2.455,98.6,89.914,89.914,0,0,1,32.6,50.8C48.766,37.544,68.89,30.536,90.8,30.536c27.6,0,50.858,9,67.267,26.04,14.783,15.347,22.925,36.049,22.925,58.291a86.689,86.689,0,0,1-5.758,31.252,80.957,80.957,0,0,1-17.208,27.2c-16.431,17.1-39.678,26.143-67.225,26.143a108.569,108.569,0,0,1-30.425-4.4c-9.018,10.507-21.238,16.461-34.027,16.461ZM90.8,42.6c-43.926,0-70.88,29.752-78.107,59.237C5.86,129.7,15.927,156.032,39.619,172.27l2.647,1.814-.081,3.51a52.808,52.808,0,0,1-4.23,19.688A37.866,37.866,0,0,0,54.6,184.351l2.246-3.014,3.331,1.131A97.72,97.72,0,0,0,90.8,187.392c54.668,0,79.568-37.594,79.568-72.525a70.649,70.649,0,0,0-19.469-49.386C136.477,50.514,115.7,42.6,90.8,42.6Z" transform="translate(0 -30.536)" fill="#fff" stroke="#fff" stroke-width="6"/>
+      </g>
     </g>
   </g>
-  <text id="_2" data-name="2" class="cls-4" transform="translate(93 163)"><tspan x="0" y="0">3</tspan></text>
+  <text id="_3" data-name="3" transform="translate(93 162)" fill="#fff" font-size="95" font-family="Surt-Bold, Surt" font-weight="700"><tspan x="0" y="0">3</tspan></text>
 </svg>

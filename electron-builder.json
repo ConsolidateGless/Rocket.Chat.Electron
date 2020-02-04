@@ -21,7 +21,7 @@
 		"bundleVersion": "63",
 		"helperBundleId": "chat.rocket.electron.helper",
 		"type": "distribution",
-		"artifactName": "glesschat-${version}.${ext}",
+		"artifactName": "consolidate-chat-${version}.${ext}",
 		"extendInfo": {
 			"NSMicrophoneUsageDescription": "I need access to your microphone to record the audio you want to send.",
 			"NSCameraUsageDescription": "I need access to your camera to record the video you want to send."
@@ -57,7 +57,7 @@
 		"asarUnpack": [
 			"node_modules"
 		],
-		"artifactName": "glesschat-${version}-mas.${ext}"
+		"artifactName": "consolidate-chat-${version}-mas.${ext}"
 	},
 	"win": {
 		"target": [
@@ -70,18 +70,18 @@
 		"perMachine": false,
 		"allowElevation": true,
 		"allowToChangeInstallationDirectory": true,
-		"artifactName": "glesschat-setup-${version}.${ext}"
+		"artifactName": "consolidate-chat-setup-${version}.${ext}"
 	},
 	"appx": {
 		"backgroundColor": "#E74014",
-		"displayName": "Gless.Chat",
-		"publisherDisplayName": "Gless.Chat",
+		"displayName": "Consolidate.Chat",
+		"publisherDisplayName": "Consolidate.Chat",
 		"languages": [
 			"en-US",
 			"en-GB",
 			"pt-BR"
 		],
-		"artifactName": "glesschat-${version}-${arch}.${ext}"
+		"artifactName": "consolidate-chat-${version}-${arch}.${ext}"
 	},
 	"linux": {
 		"target": [
@@ -90,22 +90,22 @@
 			"rpm",
 			"snap"
 		],
-		"executableName": "glesschat-desktop",
+		"executableName": "consolidate-chat-desktop",
 		"category": "GNOME;GTK;Network;InstantMessaging",
 		"desktop": {
-			"StartupWMClass": "Gless.Chat",
-			"MimeType": "x-scheme-handler/glesschat"
+			"StartupWMClass": "Consolidate.Chat",
+			"MimeType": "x-scheme-handler/consolidatechat"
 		},
-		"artifactName": "glesschat-${version}.${ext}"
+		"artifactName": "consolidate-chat-${version}.${ext}"
 	},
 	"deb": {
-		"artifactName": "glesschat_${version}_${arch}.${ext}"
+		"artifactName": "consolidate-chat_${version}_${arch}.${ext}"
 	},
 	"rpm": {
-		"artifactName": "glesschat-${version}.${arch}.${ext}"
+		"artifactName": "consolidate-chat-${version}.${arch}.${ext}"
 	},
 	"snap": {
-		"artifactName": "glesschat_${version}_${arch}.${ext}"
+		"artifactName": "consolidate-chat_${version}_${arch}.${ext}"
 	},
 	"afterSign": "./build/notarize.js",
 	"publish": [

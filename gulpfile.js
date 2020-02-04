@@ -69,7 +69,7 @@ task('release:win32', () => build({
 	win: [],
 }));
 
-task('release', series('build', `release:${ process.platform }`));
+task('release', series('build', `release:${process.platform}`));
 
 task('icons:clean', async () => {
 	await removeAsync('src/public/images/tray/darwin');
@@ -79,14 +79,14 @@ task('icons:clean', async () => {
 });
 
 const createDarwinTrayIcon = ({ src, dest, dark = false }) => async () => {
-	const svg = (await readAsync(`src/icons/${ dark ? 'white' : 'black' }/${ src }.svg`))
+	const svg = (await readAsync(`src/icons/${dark ? 'white' : 'black'}/${src}.svg`))
 		.replace('viewBox="0 0 64 64"', 'viewBox="0 0 64 64" transform="scale(0.8)"');
 
 	const png24 = await convert(svg, { width: 24, height: 24 });
 	const png48 = await convert(svg, { width: 24, height: 24, scale: 2 });
 
-	await writeAsync(`src/public/images/tray/${ dark ? 'darwin-dark' : 'darwin' }/${ dest }.png`, png24);
-	await writeAsync(`src/public/images/tray/${ dark ? 'darwin-dark' : 'darwin' }/${ dest }@2x.png`, png48);
+	await writeAsync(`src/public/images/tray/${dark ? 'darwin-dark' : 'darwin'}/${dest}.png`, png24);
+	await writeAsync(`src/public/images/tray/${dark ? 'darwin-dark' : 'darwin'}/${dest}@2x.png`, png48);
 };
 
 task('icons:darwin:default', createDarwinTrayIcon({ src: 'default', dest: 'default' }));
@@ -98,13 +98,13 @@ task('icons:darwin-dark:notification', createDarwinTrayIcon({ src: 'notification
 task('icons:darwin-dark', series('icons:darwin-dark:default', 'icons:darwin-dark:notification'));
 
 const createLinuxTrayIcon = ({ src, dest }) => async () => {
-	const svg = await readAsync(`src/icons/grey/${ src }.svg`);
+	const svg = await readAsync(`src/icons/grey/${src}.svg`);
 
 	const png24 = await convert(svg, { width: 64, height: 64 });
 	const png48 = await convert(svg, { width: 64, height: 64, scale: 2 });
 
-	await writeAsync(`src/public/images/tray/linux/${ dest }.png`, png24);
-	await writeAsync(`src/public/images/tray/linux/${ dest }@2x.png`, png48);
+	await writeAsync(`src/public/images/tray/linux/${dest}.png`, png24);
+	await writeAsync(`src/public/images/tray/linux/${dest}@2x.png`, png48);
 };
 
 task('icons:linux:default', createLinuxTrayIcon({ src: 'default', dest: 'default' }));
@@ -136,8 +136,8 @@ task('icons:linux', series(
 
 const createWindowsTrayIcon = ({ src, dest }) => async () => {
 	const smallSrc = src.startsWith('notification-') ? 'notification-dot' : src;
-	const smallSvg = await readAsync(`src/icons/grey/${ smallSrc }.svg`);
-	const svg = await readAsync(`src/icons/grey/${ src }.svg`);
+	const smallSvg = await readAsync(`src/icons/grey/${smallSrc}.svg`);
+	const svg = await readAsync(`src/icons/grey/${src}.svg`);
 
 	const png16 = await convert(smallSvg, { width: 16, height: 16 });
 	const png24 = await convert(smallSvg, { width: 24, height: 24 });
@@ -148,7 +148,7 @@ const createWindowsTrayIcon = ({ src, dest }) => async () => {
 	const png256 = await convert(svg, { width: 256, height: 256 });
 	const ico = await toIco([png16, png24, png32, png48, png64, png128, png256]);
 
-	await writeAsync(`src/public/images/tray/win32/${ dest }.ico`, ico);
+	await writeAsync(`src/public/images/tray/win32/${dest}.ico`, ico);
 };
 
 task('icons:win32:default', createWindowsTrayIcon({ src: 'default', dest: 'default' }));

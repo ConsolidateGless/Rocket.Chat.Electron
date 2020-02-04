@@ -1,6 +1,6 @@
 !ifndef BUILD_UNINSTALLER
   Function AddToStartup
-    CreateShortCut "$SMSTARTUP\Gless Chat.lnk" "$INSTDIR\Gless Chat.exe" ""
+    CreateShortCut "$SMSTARTUP\Consolidate Chat.lnk" "$INSTDIR\Consolidate Chat.exe" ""
   FunctionEnd
 
   !define MUI_FINISHPAGE_SHOWREADME
@@ -10,7 +10,7 @@
 
 !ifdef BUILD_UNINSTALLER
   Function un.AddAppData
-    RMDir /r "$APPDATA\Gless Chat"
+    RMDir /r "$APPDATA\Consolidate Chat"
   FunctionEnd
 
   ; Using the read me setting to add option to remove app data
@@ -28,12 +28,12 @@
     DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\66bed7da-e601-54e6-b2e8-7be611d82556"
   ${EndIf}
   !insertMacro disableAutoUpdates
-  Delete "$SMSTARTUP\Gless Chat+.lnk"
+  Delete "$SMSTARTUP\Consolidate Chat+.lnk"
 !macroend
 
 !macro customUnInstall
   ${IfNot} ${Silent}
-    Delete "$SMSTARTUP\Gless Chat.lnk"
+    Delete "$SMSTARTUP\Consolidate Chat.lnk"
   ${EndIf}
 !macroend
 

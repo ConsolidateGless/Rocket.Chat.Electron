@@ -18,7 +18,7 @@ const preventEvent = (event) => event.preventDefault();
 const prepareApp = () => {
 	setupErrorHandling('main');
 
-	app.setAsDefaultProtocolClient('glesschat');
+	app.setAsDefaultProtocolClient('consolidatechat');
 	app.setAppUserModelId('chat.gless');
 
 	const dirName = process.env.NODE_ENV === 'production' ? app.name : `${app.name} (${process.env.NODE_ENV})`;

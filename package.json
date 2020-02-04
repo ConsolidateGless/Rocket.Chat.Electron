@@ -1,9 +1,9 @@
 {
   "name": "rocketchat",
-  "description": "Official OSX, Windows, and Linux Desktop Clients for Gless.Chat",
+  "description": "Official OSX, Windows, and Linux Desktop Clients for Consolidate Chat",
   "version": "2.21.0",
   "author": "Consolidate Software GmbH & co KG <support@consolidate.eu>",
-  "copyright": "© 2019, Gless.Chat",
+  "copyright": "© 2019, Consolidate Chat",
   "homepage": "https://consolidate.eu",
   "license": "MIT",
   "keywords": [
@@ -87,5 +87,5 @@
     "npm": ">=6.9.x",
     "yarn": ">=1.17.x"
   },
-  "productName": "Gless Chat"
+  "productName": "Consolidate Chat"
 }

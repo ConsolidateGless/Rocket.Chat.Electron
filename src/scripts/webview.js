@@ -118,7 +118,7 @@ class WebView extends EventEmitter {
 					break;
 				case 'unread-changed': {
 					const amountOfUnreadMessages = event.args[0] || 0;
-					document.title = amountOfUnreadMessages ? `(${amountOfUnreadMessages}) Gless Chat` : 'Gless Chat';
+					document.title = amountOfUnreadMessages ? `(${amountOfUnreadMessages}) Consolidate Chat` : 'Consolidate Chat';
 					break;
 				}
 				case 'create-activity': {
