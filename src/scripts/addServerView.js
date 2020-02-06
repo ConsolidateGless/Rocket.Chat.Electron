@@ -23,7 +23,7 @@ function AddServerView({ defaultServerUrl = 'https://chat.gless.io', visible }) 
 	const validateServerUrl = async (serverUrl) => {
 		inputRef.current.value = serverUrl;
 
-		setValidationState('validating');
+		//setValidationState('validating');
 		setErrorMessage(null);
 
 		if (!serverUrl.length) {
@@ -34,7 +34,7 @@ function AddServerView({ defaultServerUrl = 'https://chat.gless.io', visible }) 
 		try {
 			await servers.validateHost(serverUrl, 2000);
 			setValidationState('idle');
-			return;
+			return true;
 		} catch (error) {
 			if (/^https?:\/\/.+/.test(serverUrl) || error === 'basic-auth') {
 				setValidationState('invalid');
@@ -53,7 +53,8 @@ function AddServerView({ defaultServerUrl = 'https://chat.gless.io', visible }) 
 			}
 
 			if (!/(^https?:\/\/)|(\.)|(^([^:]+:[^@]+@)?localhost(:\d+)?$)/.test(serverUrl)) {
-				return validateServerUrl(`https://${serverUrl}.rocket.chat`);
+				//return validateServerUrl(`https://${serverUrl}.rocket.chat`);
+				return;
 			}
 
 			if (!/^https?:\/\//.test(serverUrl)) {
@@ -78,7 +79,8 @@ function AddServerView({ defaultServerUrl = 'https://chat.gless.io', visible }) 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 
-		await validateServerUrl(inputRef.current.value.trim());
+		var result = await validateServerUrl(inputRef.current.value.trim());
+		if (!result) return;
 		let url = inputRef.current.value || defaultServerUrl;
 
 		url = servers.addHost(url);
@@ -108,10 +110,9 @@ function AddServerView({ defaultServerUrl = 'https://chat.gless.io', visible }) 
 
 	root.querySelector('.add-server-offline-error').innerText = t('error.offline');
 
-	root.querySelector('.add-server-button').innerText = (validationState === 'idle' && t('landing.connect'))
+	root.querySelector('.add-server-error-message').innerText = (validationState === 'idle' && t('landing.connect'))
 		|| (validationState === 'validating' && t('landing.validating'))
 		|| (validationState === 'invalid' && t('landing.invalidUrl'));
-	root.querySelector('.add-server-button').toggleAttribute('disabled', validationState !== 'idle');
 
 	return null;
 }

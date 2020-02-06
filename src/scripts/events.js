@@ -430,6 +430,10 @@ export default () => {
 		}
 	});
 
+	webview.on('remove-server', (hostUrl, event) => {
+		servers.removeHost(hostUrl);
+	})
+
 	mountMainWindow();
 
 	setupUpdates();

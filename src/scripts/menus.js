@@ -20,7 +20,11 @@ const createTemplate = ({
 			submenu: [
 				{
 					label: t('menus.changeServer'),
-					click: () => events.emit('remove-server', events.state.servers[0].url)
+					click: () => {
+						if (events.state.servers) {
+							events.emit('remove-server', events.state.servers[0].url)
+						};
+					}
 				},
 				...process.platform === 'darwin' ? [
 					{
