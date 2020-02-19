@@ -53,8 +53,7 @@ function AddServerView({ defaultServerUrl = 'https://chat.gless.io', visible }) 
 			}
 
 			if (!/(^https?:\/\/)|(\.)|(^([^:]+:[^@]+@)?localhost(:\d+)?$)/.test(serverUrl)) {
-				//return validateServerUrl(`https://${serverUrl}.rocket.chat`);
-				return;
+				return validateServerUrl(`https://${serverUrl}`);
 			}
 
 			if (!/^https?:\/\//.test(serverUrl)) {
